@@ -1,0 +1,74 @@
+#Create a new directory and initialize a Git repository
+mkdir my-project
+cd my-project
+git init
+
+#Add a README.md file
+echo "# My Project" > README.md
+git add README.md
+git commit -m "Initial commit: Add README.md"
+
+#Push the repository to a remote service
+git remote add origin https://github.com/your-username/my-project.git
+git branch -M main
+git push -u origin main
+
+#Create and switch to feature-1 branch
+git checkout -b feature-1
+
+#Make changes and commit
+echo "Feature 1 content" > feature1.txt
+git add feature1.txt
+git commit -m "Add feature1.txt with initial content"
+
+#Create and switch to feature-2 branch
+git checkout main (switch back to main)
+git checkout -b feature-2
+
+#Make changes and commit
+echo "Feature 2 content" > feature2.txt
+git add feature2.txt
+git commit -m "Add feature2.txt with initial content"
+
+#Push both branches to the remote repository
+git push -u origin feature-1
+git push -u origin feature-2
+
+PULL REQUEST  feature-1 to main.
+PULL REQUEST  feature-2 to main.
+
+#Rebase feature-1 branch onto the latest main
+git checkout feature-1
+git pull origin main --rebase
+
+git checkout feature-1
+git pull origin main --rebase
+
+git add .
+git rebase --continue(Resolve conflicts (if any), commit the resolved files, and continue the rebase)
+git push --force(Push the rebased branches)
+
+MERGE the feature-1 on github
+
+#Rebase feature-2 branch
+git checkout feature-2(Update feature-2 with the latest main changes)
+git pull origin main --rebase(Resolve conflicts (if any), commit the resolved files, and continue the rebase)
+git push --force(Push the rebased branches)
+
+#Check the commit history
+git checkout main(Switch to the main branch and pull the latest changes)
+git pull origin main
+git log --oneline --graph --all(View the commit history)
+
+#Clean up merged branches
+git branch -d feature-1(Delete the local branches)
+git branch -d feature-2
+
+git push origin --delete feature-1(Delete the remote branches)
+git push origin --delete feature-2
+
+
+
+
+
+
